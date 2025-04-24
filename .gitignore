@@ -1,0 +1,6 @@
+ffmpeg_build
+ffmpeg
+dist
+node_modules
+emsdk
+.DS_Store

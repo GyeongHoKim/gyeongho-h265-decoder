@@ -1,0 +1,40 @@
+{
+  "name": "gyeongho-h265-decoder",
+  "version": "0.0.0-development",
+  "description": "H.265 wasm decoder for Web Browser",
+  "keywords": [
+    "H.265",
+    "WebAssembly",
+    "decoder",
+    "HEVC"
+  ],
+  "homepage": "https://github.com/GyeongHoKim/gyeongho-h265-decoder#readme",
+  "bugs": {
+    "url": "https://github.com/GyeongHoKim/gyeongho-h265-decoder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GyeongHoKim/gyeongho-h265-decoder.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Gyeongho Kim",
+  "type": "commonjs",
+  "main": "index.cjs",
+  "types": "./Module.d.ts",
+  "bin": {
+    "gyeongho-h265-decoder": "./index.cjs"
+  },
+  "files": [
+    "index.cjs",
+    "dist/libffmpeg_265.js",
+    "dist/libffmpeg_265.wasm",
+    "Module.d.ts"
+  ],
+  "scripts": {
+    "build": "./build.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
