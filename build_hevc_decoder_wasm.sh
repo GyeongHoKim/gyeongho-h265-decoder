@@ -3,7 +3,7 @@ if [ -d "dist" ]; then
 fi
 mkdir -p dist
 
-export TOTAL_MEMORY=268435456
+export TOTAL_MEMORY=1073741824
 export EXPORTED_FUNCTIONS="[ \
 		'_init_decoder', \
 		'_flush_decoder', \

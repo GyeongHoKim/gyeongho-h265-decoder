@@ -134,7 +134,7 @@ declare interface Module {
 
 # Warning
 
-Make sure you `_malloc()` within 265MB, and call `_free()` after you don't need it.  
+Make sure you `_malloc()` within 1GB, and call `_free()` after you don't need it.  
 You should not expect javascript's behavior(Garbage Collection, etc).
 
 # License
