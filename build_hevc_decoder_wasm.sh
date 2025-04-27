@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -d "dist" ]; then
+    rm -r dist
+fi
+mkdir -p dist
+
 export TOTAL_MEMORY=1073741824
 export EXPORTED_FUNCTIONS="[ \
 		'_init_decoder', \
