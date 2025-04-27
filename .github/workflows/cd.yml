@@ -30,6 +30,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
+            ./ffmpeg
             ./ffmpeg_build
             ./emsdk
           key: ${{ runner.os }}-build-deps-${{ hashFiles('build.sh', 'build_hevc_decoder.sh', 'build_hevc_decoder_wasm.sh') }}

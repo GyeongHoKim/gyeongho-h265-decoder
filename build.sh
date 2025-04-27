@@ -1,19 +1,14 @@
 #!/bin/bash
 
-echo "Check ffmpeg_build exists"
-if [ -d "ffmpeg_build" ]; then
-    echo "ffmpeg_build already exists, skip build"
+echo "Check ffmpeg repository already exists"
+if [ -d "ffmpeg" ]; then
+    echo "ffmpeg repository already exists, skip clone"
 else
-    echo "Check ffmpeg repository already exists"
-    if [ -d "ffmpeg" ]; then
-        echo "ffmpeg repository already exists, skip clone"
-    else
-        echo "ffmpeg repository not found, clone and checkout to n4.1"
-        git clone https://git.ffmpeg.org/ffmpeg.git
-        cd ffmpeg
-        git checkout n4.1
-        cd ..
-    fi
+    echo "ffmpeg repository not found, clone and checkout to n4.1"
+    git clone https://git.ffmpeg.org/ffmpeg.git
+    cd ffmpeg
+    git checkout n4.1
+    cd ..
 fi
 
 echo "Check emcc already installed"
@@ -38,4 +33,9 @@ if ! command -v emcc --version > /dev/null 2>&1; then
     fi
 fi
 
-./build_hevc_decoder.sh
+if [ -d "ffmpeg_build" ]; then
+    echo "ffmpeg_build already exists, skip build"
+    ./build_hevc_decoder_wasm.sh
+else
+    ./build_hevc_decoder.sh
+fi
