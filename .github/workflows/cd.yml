@@ -34,14 +34,8 @@ jobs:
             ./ffmpeg_build
             ./emsdk
           key: ${{ runner.os }}-build-deps-${{ hashFiles('build.sh', 'build_hevc_decoder.sh', 'build_hevc_decoder_wasm.sh') }}
-      - name: Install dependencies
-        run: npm clean-install
-      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: npm audit signatures
-      - name: Mkdir dist and copy package.json
-        run: |
-          mkdir -p dist
-          cp package.json dist/
+      - name: Build
+        run: npm run build
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

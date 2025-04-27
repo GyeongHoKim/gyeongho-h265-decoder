@@ -26,23 +26,15 @@
   },
   "files": [
     "index.cjs",
-    "libffmpeg_265.js",
-    "libffmpeg_265.wasm",
-    "dist/**/*",
+    "dist/libffmpeg_265.js",
+    "dist/libffmpeg_265.wasm",
     "Module.d.ts"
   ],
   "scripts": {
     "build": "./build.sh",
-    "copy": "cp index.cjs Module.d.ts README.md LICENSE dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
-  },
-  "devDependencies": {
-    "@semantic-release/npm": "^12.0.1"
-  },
-  "dependencies": {
-    "@semantic-release/exec": "^7.0.3"
   }
 }
