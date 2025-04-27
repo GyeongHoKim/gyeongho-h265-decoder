@@ -1,6 +1,6 @@
 {
   "name": "gyeongho-h265-decoder",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "H.265 wasm decoder for Web Browser",
   "keywords": [
     "H.265",
