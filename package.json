@@ -36,5 +36,8 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1"
   }
 }
