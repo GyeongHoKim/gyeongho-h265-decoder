@@ -33,10 +33,6 @@ jobs:
             ./ffmpeg_build
             ./emsdk
           key: ${{ runner.os }}-build-deps-${{ hashFiles('build.sh', 'build_hevc_decoder.sh', 'build_hevc_decoder_wasm.sh') }}
-      - name: Build
-        run: npm run build
-      - name: Copy files
-        run: npm run copy
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
