@@ -18,7 +18,7 @@ if (!fs.existsSync(targetPath)) {
 
 // Copy files
 files.forEach(file => {
-  const sourcePath = path.join(__dirname, 'dist', file);
+  const sourcePath = path.join(__dirname, file);
   const targetFilePath = path.join(targetPath, file);
 
   try {
