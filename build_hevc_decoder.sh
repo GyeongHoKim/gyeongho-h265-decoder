@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Beginning Build:"
 rm -r ffmpeg_build
 mkdir -p ffmpeg_build

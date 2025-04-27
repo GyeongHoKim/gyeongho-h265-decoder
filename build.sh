@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Check ffmpeg repository already exists"
 if [ -d "ffmpeg" ]; then
     echo "ffmpeg repository already exists, skip clone"
