@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/GyeongHoKim/gyeongho-h265-decoder.git"
   },
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "GPL-2.0-only",
   "author": "Gyeongho Kim",
   "type": "commonjs",
   "main": "index.cjs",
