@@ -34,6 +34,10 @@ jobs:
             ./ffmpeg_build
             ./emsdk
           key: ${{ runner.os }}-build-deps-${{ hashFiles('build.sh', 'build_h265_decoder.sh', 'build_h265_decoder_wasm.sh') }}
+      - name: Install dependencies
+        run: npm clean-install
+      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: npm audit signatures
       - name: Build
         run: npm run build
       - name: Release
