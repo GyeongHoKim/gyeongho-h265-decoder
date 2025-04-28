@@ -7,8 +7,8 @@ const targetPath = path.resolve(process.argv[2] || '.');
 
 // Required files
 const files = [
-  'libffmpeg_265.js',
-  'libffmpeg_265.wasm'
+  'gyeongho-h265-decoder.js',
+  'gyeongho-h265-decoder.wasm'
 ];
 
 // Create target directory if it doesn't exist

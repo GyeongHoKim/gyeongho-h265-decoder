@@ -5,8 +5,10 @@ declare interface Module {
   HEAPU8: Uint8Array;
 
   // Decoder related
-  _init_decoder(callback: number): void;
-  _decode_AnnexB_buffer(buffer: number, size: number): void;
+  _init_decoder(callback: number): number;
+  _decode_AnnexB_buffer(buffer: number, size: number): number;
+  _flush_decoder(): number;
+  _close_decoder(): number;
 
   // Function management
   addFunction(

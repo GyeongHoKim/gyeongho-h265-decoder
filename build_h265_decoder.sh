@@ -43,4 +43,4 @@ make
 make install
 
 cd ../
-./build_hevc_decoder_wasm.sh
+./build_h265_decoder_wasm.sh

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p dist
+
 echo "Check ffmpeg repository already exists"
 if [ -d "ffmpeg" ]; then
     echo "ffmpeg repository already exists, skip clone"
@@ -35,7 +37,7 @@ fi
 
 if [ -d "ffmpeg_build" ]; then
     echo "ffmpeg_build already exists, skip build"
-    ./build_hevc_decoder_wasm.sh
+    ./build_h265_decoder_wasm.sh
 else
-    ./build_hevc_decoder.sh
+    ./build_h265_decoder.sh
 fi
