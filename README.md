@@ -5,6 +5,8 @@ A H.265 decoder implemented in WebAssembly using FFMPEG. This project converts H
 # Features
 
 - Decode H.265 bitstream into YUV420 Uint8Array
+- Convert YUV420 Uint8Array to VideoFrame
+- Render VideoFrame to Canvas(2d, WebGL, WebGPU)
 
 # Getting Started
 
@@ -20,15 +22,15 @@ There is path option to specify path of WASM binary and glue Javascript file.
 I recommend you to copy WASM and JS files to your **public** directory.
 
 ```bash
-npx gyeongho-h265-decoder --path ./public
+npx gyeongho-h265-decoder ./public
 ```
 
 then your directory structure should be like this.
 
 ```bash
 public/
-├── libffmpeg_265.js
-└── libffmpeg_265.wasm
+├── gyeongho-h265-decoder.js
+└── gyeongho-h265-decoder.wasm
 ```
 
 Basically, Glue Javascript file **fetch from network(same path that js file is located)** WASM binary file.  
@@ -48,13 +50,13 @@ let Module = {
 
 You can use decoder by
 
-1. script tag in your HTML
+- option 1: script tag in your HTML
 
 ```html
-<script src="/libffmpeg_265.js"></script>
+<script src="/gyeongho-h265-decoder.js"></script>
 ```
 
-2. import in your Javascript
+- option 2: import in your Javascript
 
 ```javascript
 // Web Worker(recommended)
@@ -66,7 +68,7 @@ let Module = {
     // do something
   }
 }
-importScripts("/libffmpeg_265.js");
+importScripts("/gyeongho-h265-decoder.js");
 
 // In main event loop
 function loadEmscriptenModule(path) {
@@ -117,12 +119,14 @@ finally,
 declare interface Module {
   // Memory related
   _malloc(size: number): number;
-  _free(pointer: number): void;
+  _free(pointer: number): number;
   HEAPU8: Uint8Array;
 
   // Decoder related
-  _init_decoder(callback: number): void;
-  _decode_AnnexB_buffer(buffer: number, size: number): void;
+  _init_decoder(callback: number): number;
+  _decode_AnnexB_buffer(buffer: number, size: number): number;
+  _flush_decoder(): number;
+  _close_decoder(): number;
 
   // Function management
   addFunction(
