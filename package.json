@@ -18,23 +18,34 @@
   },
   "license": "GPL-2.0-only",
   "author": "Gyeongho Kim",
-  "type": "commonjs",
-  "main": "index.cjs",
-  "types": "./Module.d.ts",
+  "type": "module",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "bin": {
     "gyeongho-h265-decoder": "./index.cjs"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs"
+    }
+  },
   "files": [
     "index.cjs",
-    "dist/libffmpeg_265.js",
-    "dist/libffmpeg_265.wasm",
-    "Module.d.ts"
+    "dist/**/*"
   ],
   "scripts": {
-    "build": "./build.sh",
+    "build": "npm run build:ts && npm run build:wasm",
+    "build:ts": "tsup",
+    "build:wasm": "./build.sh",
+    "format": "clang-format -i src/*.c",
+    "docs": "doxygen Doxyfile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
   }
 }
