@@ -25,6 +25,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+      - name: Cache ffmpeg and emsdk
+        id: cache-folders
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./ffmpeg
+            ./ffmpeg_build
+            ./emsdk
+          key: ${{ runner.os }}-build-deps-${{ hashFiles('build.sh', 'build_h265_decoder.sh', 'build_h265_decoder_wasm.sh') }}
       - name: Build
         run: npm run build
       - name: Release
